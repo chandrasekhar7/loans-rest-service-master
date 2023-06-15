@@ -28,6 +28,8 @@ jobs:
         uses: actions/setup-dotnet@v3
         with:
           dotnet-version: 7.0.x
+      - name: Add local nuget repo
+        run: dotnet nuget add source https://packages.f2crew.com/nuget --name NetPayAdvance.Common 
       - name: Install dependencies
         run: dotnet restore
       - name: Build
