@@ -21,8 +21,8 @@ jobs:
       uses: actions/setup-dotnet@v3
       with:
         dotnet-version: 7.0.x
-    - name: Restore dependencies
-      run: dotnet restore NetPayAdvance.LoanManagement.sln
+   # - name: Restore dependencies
+   #   run: dotnet restore NetPayAdvance.LoanManagement.sln
     - name: Build
       run: dotnet build NetPayAdvance.LoanManagement.sln --no-restore
     - name: Test
