@@ -1,6 +1,6 @@
 name: CodeCoverage
 on:
-  pull_request:
+  push:
     branches:
       - main
   workflow_dispatch:
@@ -33,9 +33,9 @@ jobs:
       - name: Install dependencies
         run: dotnet restore
       - name: Build
-        run: dotnet build Npa.Accounting.sln --configuration Release
+        run: dotnet build NetPayAdvance.LoanManagement.sln --configuration Release
       - name: Test
-        run: dotnet test Npa.Accounting.sln --configuration Release --logger "trx;LogFileName=test-results.trx" || true
+        run: dotnet test NetPayAdvance.LoanManagement.sln --configuration Release --logger "trx;LogFileName=test-results.trx" || true
       - name: Test Report
         uses: dorny/test-reporter@v1
         if: always()
