@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FastExpressionCompiler" Version="3.2.2" />
+    <PackageReference Include="FluentValidation.AspNetCore" Version="10.4.0" />
+    <PackageReference Include="Mapster" Version="7.3.0" />
+    <PackageReference Include="MediatR" Version="10.0.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.4" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.0" />
+    <PackageReference Include="Scrutor" Version="3.3.0" />
+    <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\NetPayAdvance.LoanManagement.Domain\NetPayAdvance.LoanManagement.Domain.csproj" />
+    <ProjectReference Include="..\NetPayAdvance.LoanManagement.Persistence\NetPayAdvance.LoanManagement.Persistence.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Commands\Statements\UpdateStatementCommand\UpdateStatementCommand.cs" />
+    <Compile Remove="Abstractions\Services\IPaymentService.cs" />
+  </ItemGroup>
+
+</Project>
