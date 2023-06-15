@@ -1,0 +1,77 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+	  <GenerateDocumentationFile>true</GenerateDocumentationFile>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <NoWarn>1701;1702;1591;CS8602</NoWarn>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="NetPayAdvance.LoanManagement.Application.Tests\**" />
+    <Compile Remove="NetPayAdvance.LoanManagement.Application\**" />
+    <Compile Remove="NetPayAdvance.LoanManagement.Domain.Tests\**" />
+    <Compile Remove="NetPayAdvance.LoanManagement.Domain\**" />
+    <Compile Remove="NetPayAdvance.LoanManagement.Infrastructure.Tests\**" />
+    <Compile Remove="NetPayAdvance.LoanManagement.Infrastructure\**" />
+    <Compile Remove="NetPayAdvance.LoanManagement.Persistence.Tests\**" />
+    <Compile Remove="NetPayAdvance.LoanManagement.Persistence\**" />
+    <Compile Remove="NetPayAdvance.LoanManagement.Utils\**" />
+    <Content Remove="NetPayAdvance.LoanManagement.Application.Tests\**" />
+    <Content Remove="NetPayAdvance.LoanManagement.Application\**" />
+    <Content Remove="NetPayAdvance.LoanManagement.Domain.Tests\**" />
+    <Content Remove="NetPayAdvance.LoanManagement.Domain\**" />
+    <Content Remove="NetPayAdvance.LoanManagement.Infrastructure.Tests\**" />
+    <Content Remove="NetPayAdvance.LoanManagement.Infrastructure\**" />
+    <Content Remove="NetPayAdvance.LoanManagement.Persistence.Tests\**" />
+    <Content Remove="NetPayAdvance.LoanManagement.Persistence\**" />
+    <Content Remove="NetPayAdvance.LoanManagement.Utils\**" />
+    <EmbeddedResource Remove="NetPayAdvance.LoanManagement.Application.Tests\**" />
+    <EmbeddedResource Remove="NetPayAdvance.LoanManagement.Application\**" />
+    <EmbeddedResource Remove="NetPayAdvance.LoanManagement.Domain.Tests\**" />
+    <EmbeddedResource Remove="NetPayAdvance.LoanManagement.Domain\**" />
+    <EmbeddedResource Remove="NetPayAdvance.LoanManagement.Infrastructure.Tests\**" />
+    <EmbeddedResource Remove="NetPayAdvance.LoanManagement.Infrastructure\**" />
+    <EmbeddedResource Remove="NetPayAdvance.LoanManagement.Persistence.Tests\**" />
+    <EmbeddedResource Remove="NetPayAdvance.LoanManagement.Persistence\**" />
+    <EmbeddedResource Remove="NetPayAdvance.LoanManagement.Utils\**" />
+    <None Remove="NetPayAdvance.LoanManagement.Application.Tests\**" />
+    <None Remove="NetPayAdvance.LoanManagement.Application\**" />
+    <None Remove="NetPayAdvance.LoanManagement.Domain.Tests\**" />
+    <None Remove="NetPayAdvance.LoanManagement.Domain\**" />
+    <None Remove="NetPayAdvance.LoanManagement.Infrastructure.Tests\**" />
+    <None Remove="NetPayAdvance.LoanManagement.Infrastructure\**" />
+    <None Remove="NetPayAdvance.LoanManagement.Persistence.Tests\**" />
+    <None Remove="NetPayAdvance.LoanManagement.Persistence\**" />
+    <None Remove="NetPayAdvance.LoanManagement.Utils\**" />
+    <_WebToolingArtifacts Remove="Properties\PublishProfiles\Production.pubxml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FluentValidation.AspNetCore" Version="10.4.0" />
+    <PackageReference Include="MediatR" Version="10.0.1" />
+    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="10.0.1" />
+    <PackageReference Include="MicroElements.Swashbuckle.FluentValidation" Version="5.4.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.ApiExplorer" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="6.0.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning" Version="5.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer" Version="5.0.0" />
+    <PackageReference Include="Serilog.AspNetCore" Version="5.0.0" />
+    <PackageReference Include="Serilog.Sinks.Console" Version="4.0.1" />
+    <PackageReference Include="Serilog.Sinks.MSSqlServer" Version="5.7.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
+    <PackageReference Include="xunit.extensibility.core" Version="2.4.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\NetPayAdvance.LoanManagement.Application\NetPayAdvance.LoanManagement.Application.csproj" />
+    <ProjectReference Include="..\NetPayAdvance.LoanManagement.Infrastructure\NetPayAdvance.LoanManagement.Infrastructure.csproj" />
+    <ProjectReference Include="..\NetPayAdvance.LoanManagement.Persistence\NetPayAdvance.LoanManagement.Persistence.csproj" />
+  </ItemGroup>
+  
+
+</Project>
