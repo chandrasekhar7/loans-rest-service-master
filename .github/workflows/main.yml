@@ -1,0 +1,44 @@
+name: CodeCoverage
+on:
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+jobs:  
+  build:  
+    name: Build and Publish
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Cache SonarQube packages
+        uses: actions/cache@v2
+        with:
+          path: ~/.sonar/cache
+          key: ${{ runner.os }}-sonar
+          restore-keys: ${{ runner.os }}-sonar
+        
+      - name: Cache SonarQube scanner
+        id: cache-sonar-scanner
+        uses: actions/cache@v2
+        with:
+          path: .sonar/scanner
+          key: ${{ runner.os }}-sonar-scanner
+          restore-keys: ${{ runner.os }}-sonar-scanner
+      - name: Setup dotnet
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: 7.0.x
+      - name: Install dependencies
+        run: dotnet restore
+      - name: Build
+        run: dotnet build Npa.Accounting.sln --configuration Release
+      - name: Test
+        run: dotnet test Npa.Accounting.sln --configuration Release --logger "trx;LogFileName=test-results.trx" || true
+      - name: Test Report
+        uses: dorny/test-reporter@v1
+        if: always()
+        with:
+           name: DotNET Test
+           path: "**/test-results.trx"
+           reporter: dotnet-trx
+           fail-on-error: true
