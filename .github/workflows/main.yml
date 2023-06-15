@@ -36,11 +36,10 @@ jobs:
         run: dotnet build NetPayAdvance.LoanManagement.sln --configuration Release
       - name: Test
         run: dotnet test NetPayAdvance.LoanManagement.sln --configuration Release --logger "trx;LogFileName=test-results.trx" || true
-      - name: Test Report
-        uses: dorny/test-reporter@v1
-        if: always()
+      - name: use this action, test solution dir
+        uses: zyborg/dotnet-tests-report@v1
         with:
-           name: DotNET Test
-           path: "**/test-results.trx"
-           reporter: dotnet-trx
-           fail-on-error: false
+          project_path: .
+          report_name: "**/test-results.trx"
+          report_title: test-results
+          github_token: ${{ secrets.GITHUB_TOKEN }}
