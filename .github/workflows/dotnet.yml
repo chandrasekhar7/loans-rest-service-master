@@ -22,8 +22,8 @@ jobs:
       with:
         dotnet-version: 6.0.x
     - name: Restore dependencies
-      run: dotnet restore
+      run: dotnet restore NetPayAdvance.LoanManagement.sln
     - name: Build
-      run: dotnet build --no-restore
+      run: dotnet build NetPayAdvance.LoanManagement.sln --no-restore
     - name: Test
       run: dotnet test --no-build --verbosity normal
