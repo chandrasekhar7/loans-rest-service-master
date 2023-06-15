@@ -35,11 +35,9 @@ jobs:
       - name: Build
         run: dotnet build NetPayAdvance.LoanManagement.sln --configuration Release
       - name: Test
-        run: dotnet test NetPayAdvance.LoanManagement.sln --configuration Release --logger "trx;LogFileName=test-results.trx" || true
+        run: dotnet test --configuration Release --logger "xunit;LogFileName=test-results.xml" --no-build
       - name: use this action, test solution dir
-        uses: zyborg/dotnet-tests-report@v1
+        uses: EnricoMi/publish-unit-test-result-action@v2
         with:
-          project_path: .
-          report_name: "**/test-results.trx"
-          report_title: test-results
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          files: test-results.xml
+
