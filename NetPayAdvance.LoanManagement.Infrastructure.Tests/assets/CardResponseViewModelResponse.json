@@ -1,0 +1,11 @@
+{
+  "Id": 321,
+  "LoanId": 123,
+  "PowerID": 123,
+  "Amount": "23.00",
+  "CreatedOn": "2022-04-04",
+  "Teller": "SP2",
+  "ReturnCode": "001",
+  "Signature": "Srinivasan Palaniappan"
+}
+
